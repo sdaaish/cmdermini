@@ -23,4 +23,5 @@
 
 ## <Continue to add your own>
 
-. ${env:Userprofile}\Repos\powershell-stuff\aliases.ps1
+. ~\Repos\powershell-stuff\aliases.ps1
+Set-Location ~
