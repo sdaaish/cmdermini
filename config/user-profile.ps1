@@ -25,3 +25,6 @@
 
 . ~\Repos\powershell-stuff\aliases.ps1
 Set-Location ~
+
+Remove-Item alias:curl
+Remove-Item alias:wget
