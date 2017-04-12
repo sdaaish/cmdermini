@@ -28,3 +28,5 @@ Set-Location ~
 
 Remove-Item alias:curl
 Remove-Item alias:wget
+
+$env:Path += ";~\Repos\powershell-stuff"
