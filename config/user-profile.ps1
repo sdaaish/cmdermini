@@ -22,3 +22,5 @@
 }
 
 ## <Continue to add your own>
+
+. ~/Repos/powershell-stuff/aliases.ps1
