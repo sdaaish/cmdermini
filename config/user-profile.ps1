@@ -22,8 +22,3 @@
 }
 
 ## <Continue to add your own>
-
-. ~\Repos\powershell-stuff\aliases.ps1
-Set-Location ~
-
-$env:Path += ";~\Repos\powershell-stuff"
