@@ -108,8 +108,9 @@ function tildaPath($Path) {
 
 # Replace the cmder prompt entirely with this.
 [ScriptBlock]$CmderPrompt = {
+    $version = $PSVersionTable.PSEdition
     $tp = tildaPath($pwd.ProviderPath)
-    $tp += " `(" + "$env:computername" + "`)"
+    $tp += " `(" + "$env:computername" + " $version`)"
     Microsoft.PowerShell.Utility\Write-Host "`n" $tp " " -NoNewLine -BackgroundColor $pathBackColor -ForegroundColor $pathForeColor
 
     getGitStatus($pwd.ProviderPath)
