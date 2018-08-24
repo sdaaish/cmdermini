@@ -1,5 +1,3 @@
 * Config
-I use the config from CMDERmini and from [[https://github.com/AmrEldib/cmder-powershell-powerline-prompt.git][cmder-powershell-powerline-prompt]] and [[https://github.com/AmrEldib/cmder-powerline-prompt.git][cmder-powerline-prompt]], but I dont use the ~alias~system thate these provides.
-My powershell aliases is in a separate project and for CMD I use separate cmd-files stored in PATH.
-
-
+I use the config from CMDERmini, [[https://github.com/AmrEldib/cmder-powershell-powerline-prompt.git][cmder-powershell-powerline-prompt]] and [[https://github.com/AmrEldib/cmder-powerline-prompt.git][cmder-powerline-prompt]], but I dont use the ~alias~ system that these provides.
+My powershell aliases are in a separate project and for CMD I use separate cmd-files stored in PATH.
