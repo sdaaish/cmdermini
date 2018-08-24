@@ -1,0 +1,54 @@
+* cmdermini
+** Description
+This is my config for [[https://chocolatey.org/packages/cmdermini][CMDERmini]], a clone of [[https://github.com/cmderdev/cmder][CMDER]]. I use stuff from [[https://github.com/AmrEldib][AmrEldib]] and [[https://github.com/joonro][joonro]]. I use [[https://chocolatey.org/][Chocolatey]] to manage software on Windows.
+
+I store all my config in ~\Repos\*~ and have other stuff from github in ~\Repos\github\*~. I make use of links from the cmder-config-directory to other files.
+Currently my CMMDER-config resides in ~\tools\cmder\config\ConEmu.xml~, but should probably be in ~\AppData\Roaming~.
+** Setup
+*** Basic
+This repository and other sources.
+#+BEGIN_SRC powershell
+cd ~
+mkdir Repos
+cd Repos
+git clone https://github.com/sdaaish/cmdermini.git
+mkdir ~/Repos/github
+cd github
+git clone https://github.com/AmrEldib/cmder-powershell-powerline-prompt.git
+git clone https://github.com/AmrEldib/cmder-powerline-prompt.git
+git clone https://github.com/joonro/ConEmu-Color-Themes.git
+git clone	https://github.com/powerline/fonts.git
+#+END_SRC
+*** Install cmdermini
+With Chocolatey.
+#+BEGIN_SRC powershell
+cinst -y cmdermini
+#+END_SRC
+*** Create links
+You need to be admin to make symlinks.
+#+BEGIN_SRC powershell
+  cd \tools\cmdermini
+  move .\config\ .\config.old
+  New-Item -Type SymbolicLink -Path . -Target ~\Repos\cmdermini\config\ -Name config
+  cd .\config\
+  New-Item -Type SymbolicLink -Path . -Target ~\Repos\github\cmder-powerline-prompt\powerline_core.lua -Name powerline_core.lua
+  New-Item -Type SymbolicLink -Path . -Target ~\Repos\github\cmder-powerline-prompt\powerline_git.lua -Name powerline_git.lua
+  New-Item -Type SymbolicLink -Path . -Target ~\Repos\github\cmder-powerline-prompt\powerline_hg.lua -Name powerline_hg.lua
+  New-Item -Type SymbolicLink -Path . -Target ~\Repos\github\cmder-powerline-prompt\powerline_npm.lua -Name powerline_npm.lua
+  New-Item -Type SymbolicLink -Path . -Target ~\Repos\github\cmder-powerline-prompt\powerline_prompt.lua -Name powerline_prompt.lua
+#+END_SRC
+*** Use a theme
+Add a theme from ~ConEmu-Color-Themes~.
+#+BEGIN_SRC powershell
+cd ~/Repos/github/ConEmu-Color-Themes
+.\Install-ConEmuTheme.ps1 -ConfigPath C:\tools\cmdermini\ConEmu.xml -Operation Add -ThemePathOrName .\themes\solarized-dark.xml -Verbose
+#+END_SRC
+** Resources
+Sources for code I use in my config.
+- [[https://github.com/AmrEldib/cmder-powershell-powerline-prompt.git][cmder-powershell-powerline-prompt]]
+- [[https://github.com/AmrEldib/cmder-powerline-prompt.git][cmder-powerline-prompt]]
+- [[https://github.com/joonro/ConEmu-Color-Themes.git][ConEmu-Color-Themes]]
+- [[https://github.com/powerline/fonts.git][Fonts for powerline]]
+- [[https://amreldib.com/blog/CustomizeWindowsCmderPrompt/][Customize Windows Cmder prompt]]
+- [[https://joonro.github.io/blog/index.html][Powershell Customizations]]
+
