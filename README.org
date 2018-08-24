@@ -3,7 +3,7 @@
 This is my config for [[https://chocolatey.org/packages/cmdermini][CMDERmini]], a clone of [[https://github.com/cmderdev/cmder][CMDER]]. I use stuff from [[https://github.com/AmrEldib][AmrEldib]] and [[https://github.com/joonro][joonro]]. I use [[https://chocolatey.org/][Chocolatey]] to manage software on Windows.
 
 I store all my config in ~\Repos\*~ and have other stuff from github in ~\Repos\github\*~. I make use of links from the cmder-config-directory to other files.
-Currently my CMMDER-config resides in ~\tools\cmder\config\ConEmu.xml~, but should probably be in ~\AppData\Roaming~.
+Currently my CMDER-config resides in ~\tools\cmder\config\ConEmu.xml~, but should probably be in ~\AppData\Roaming~.
 ** Setup
 *** Basic
 This repository and other sources.
@@ -12,12 +12,12 @@ cd ~
 mkdir Repos
 cd Repos
 git clone https://github.com/sdaaish/cmdermini.git
-mkdir ~/Repos/github
+mkdir ~\Repos\github
 cd github
 git clone https://github.com/AmrEldib/cmder-powershell-powerline-prompt.git
 git clone https://github.com/AmrEldib/cmder-powerline-prompt.git
 git clone https://github.com/joonro/ConEmu-Color-Themes.git
-git clone	https://github.com/powerline/fonts.git
+git clone https://github.com/powerline/fonts.git
 #+END_SRC
 *** Install cmdermini
 With Chocolatey.
@@ -38,17 +38,19 @@ You need to be admin to make symlinks.
   New-Item -Type SymbolicLink -Path . -Target ~\Repos\github\cmder-powerline-prompt\powerline_prompt.lua -Name powerline_prompt.lua
 #+END_SRC
 *** Use a theme
-Add a theme from ~ConEmu-Color-Themes~.
+Add a theme from [[https://github.com/joonro/ConEmu-Color-Themes.git][ConEmu-Color-Themes]].
 #+BEGIN_SRC powershell
 cd ~/Repos/github/ConEmu-Color-Themes
 .\Install-ConEmuTheme.ps1 -ConfigPath C:\tools\cmdermini\ConEmu.xml -Operation Add -ThemePathOrName .\themes\solarized-dark.xml -Verbose
 #+END_SRC
 ** Resources
-Sources for code I use in my config.
+Sources I use for my config.
+- [[https://chocolatey.org/][Chocolatey]]
 - [[https://github.com/AmrEldib/cmder-powershell-powerline-prompt.git][cmder-powershell-powerline-prompt]]
 - [[https://github.com/AmrEldib/cmder-powerline-prompt.git][cmder-powerline-prompt]]
 - [[https://github.com/joonro/ConEmu-Color-Themes.git][ConEmu-Color-Themes]]
 - [[https://github.com/powerline/fonts.git][Fonts for powerline]]
-- [[https://amreldib.com/blog/CustomizeWindowsCmderPrompt/][Customize Windows Cmder prompt]]
-- [[https://joonro.github.io/blog/index.html][Powershell Customizations]]
-
+- [[https://amreldib.com/blog/CustomizeWindowsCmderPrompt/][Blog: Customize Windows Cmder prompt]]
+- [[https://joonro.github.io/blog/index.html][Blog: Powershell Customizations]]
+** Todo
+I should probably store my ~ConEmu.xml~ file in Github to. But since it's in XML I mess up the files if I use more than 1 computer I choose not to. A script that can add settings that I want for my config would probably be a useful option. TBD.
